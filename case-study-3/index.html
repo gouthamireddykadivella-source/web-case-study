@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MRU Online Student Service Portal - Roll No 60</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background-color: #f4f7f6;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #1b4332;
+      color: white;
+      padding: 25px 20px;
+      text-align: center;
+    }
+    header p {
+      color: #b7e4c7;
+      margin-top: 5px;
+      font-size: 0.95rem;
+    }
+    .container {
+      max-width: 950px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      margin-bottom: 25px;
+    }
+    h2 {
+      color: #1b4332;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #d8f3dc;
+      padding-bottom: 8px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    .dynamic-section {
+      background-color: #f8f9fa;
+      padding: 15px;
+      border-left: 4px solid #2d6a4f;
+      border-radius: 6px;
+      margin-bottom: 15px;
+    }
+    .hidden {
+      display: none;
+    }
+    button {
+      background-color: #2d6a4f;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+    }
+    button:hover {
+      background-color: #1b4332;
+    }
+    .feedback {
+      padding: 12px 15px;
+      border-radius: 6px;
+      margin-bottom: 15px;
+      font-weight: bold;
+      display: none;
+    }
+    .feedback.success {
+      background-color: #d8f3dc;
+      color: #1b4332;
+      border: 1px solid #95d5b2;
+      display: block;
+    }
+    .feedback.error {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+      display: block;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background-color: #1b4332;
+      color: white;
+    }
+    .status-badge {
+      background-color: #d8f3dc;
+      color: #1b4332;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #666;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Malla Reddy University (MRU)</h1>
+    <p>Online Student Service Portal | Leave, Bonafide & Elective Registration | Roll No: 60</p>
+  </header>
+
+  <div class="container">
+    <div class="card">
+      <h2>Submit Service Application</h2>
+
+      <div id="feedbackMessage" class="feedback"></div>
+
+      <form id="serviceForm" novalidate>
+        <div class="form-group">
+          <label for="rollNo">Student Roll Number:</label>
+          <input type="text" id="rollNo" value="60" placeholder="Enter Roll Number (e.g., 60)">
+        </div>
+
+        <div class="form-group">
+          <label for="studentName">Full Name:</label>
+          <input type="text" id="studentName" placeholder="Enter your full name">
+        </div>
+
+        <div class="form-group">
+          <label for="serviceType">Select Service Type:</label>
+          <select id="serviceType">
+            <option value="leave">Online Leave Request</option>
+            <option value="bonafide">Bonafide Certificate Application</option>
+            <option value="elective">Elective Course Registration</option>
+          </select>
+        </div>
+
+        <div id="leaveFields" class="dynamic-section">
+          <div class="form-group">
+            <label for="leaveDays">Number of Leave Days (1 - 15):</label>
+            <input type="number" id="leaveDays" min="1" max="15" placeholder="e.g., 2">
+          </div>
+          <div class="form-group">
+            <label for="leaveReason">Reason for Leave:</label>
+            <textarea id="leaveReason" rows="2" placeholder="Medical, family function, etc."></textarea>
+          </div>
+        </div>
+
+        <div id="bonafideFields" class="dynamic-section hidden">
+          <div class="form-group">
+            <label for="bonafidePurpose">Purpose of Bonafide Certificate:</label>
+            <select id="bonafidePurpose">
+              <option value="Bank Loan / Scholarship">Education Loan / Scholarship</option>
+              <option value="Passport Application">Passport / Visa Verification</option>
+              <option value="Bus / Metro Pass">TSRTC Student Bus Pass</option>
+              <option value="Internship">External Internship Permission</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="electiveFields" class="dynamic-section hidden">
+          <div class="form-group">
+            <label for="electiveCourse">Select R-26 Open Elective Course:</label>
+            <select id="electiveCourse">
+              <option value="AI & Machine Learning Basics">AI & Machine Learning Basics</option>
+              <option value="Cloud Computing Fundamentals">Cloud Computing Fundamentals</option>
+              <option value="Cyber Security Essentials">Cyber Security Essentials</option>
+              <option value="Full Stack Web Development">Full Stack Web Development</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit">Validate & Submit Application</button>
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>Submitted Applications History</h2>
+      <div style="overflow-x: auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>Roll No</th>
+              <th>Student Name</th>
+              <th>Service Requested</th>
+              <th>Details</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="applicationsTable">
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Malla Reddy University (MRU) | Student Services Portal | Roll No: 60</p>
+  </footer>
+
+  <script>
+    let applicationsList = [
+      {
+        roll: "60",
+        name: "Gouthami Reddy",
+        service: "Elective Course Registration",
+        details: "Full Stack Web Development",
+        status: "Submitted"
+      }
+    ];
+
+    const serviceTypeSelect = document.getElementById("serviceType");
+    const leaveFields = document.getElementById("leaveFields");
+    const bonafideFields = document.getElementById("bonafideFields");
+    const electiveFields = document.getElementById("electiveFields");
+    const feedbackBox = document.getElementById("feedbackMessage");
+    const serviceForm = document.getElementById("serviceForm");
+
+    serviceTypeSelect.addEventListener("change", function() {
+      leaveFields.classList.add("hidden");
+      bonafideFields.classList.add("hidden");
+      electiveFields.classList.add("hidden");
+
+      if (this.value === "leave") {
+        leaveFields.classList.remove("hidden");
+      } else if (this.value === "bonafide") {
+        bonafideFields.classList.remove("hidden");
+      } else if (this.value === "elective") {
+        electiveFields.classList.remove("hidden");
+      }
+    });
+
+    function showFeedback(message, isSuccess) {
+      feedbackBox.textContent = message;
+      feedbackBox.className = isSuccess ? "feedback success" : "feedback error";
+    }
+
+    function renderApplications() {
+      const tbody = document.getElementById("applicationsTable");
+      tbody.innerHTML = "";
+
+      for (let i = 0; i < applicationsList.length; i++) {
+        const app = applicationsList[i];
+        tbody.innerHTML += `
+          <tr>
+            <td><strong>${app.roll}</strong></td>
+            <td>${app.name}</td>
+            <td>${app.service}</td>
+            <td>${app.details}</td>
+            <td><span class="status-badge">${app.status}</span></td>
+          </tr>
+        `;
+      }
+    }
+
+    serviceForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const roll = document.getElementById("rollNo").value.trim();
+      const name = document.getElementById("studentName").value.trim();
+      const type = serviceTypeSelect.value;
+
+      if (roll === "" || isNaN(roll)) {
+        showFeedback("Error: Please enter a valid numeric Roll Number.", false);
+        return;
+      }
+      if (name.length < 3) {
+        showFeedback("Error: Please enter your full name (at least 3 characters).", false);
+        return;
+      }
+
+      let serviceTitle = "";
+      let detailText = "";
+
+      if (type === "leave") {
+        const days = parseInt(document.getElementById("leaveDays").value);
+        const reason = document.getElementById("leaveReason").value.trim();
+
+        if (isNaN(days) || days < 1 || days > 15) {
+          showFeedback("Error: Leave days must be between 1 and 15.", false);
+          return;
+        }
+        if (reason.length < 5) {
+          showFeedback("Error: Please provide a valid reason for your leave.", false);
+          return;
+        }
+        serviceTitle = "Online Leave Request";
+        detailText = `${days} Day(s) - ${reason}`;
+      } else if (type === "bonafide") {
+        serviceTitle = "Bonafide Certificate";
+        detailText = document.getElementById("bonafidePurpose").value;
+      } else if (type === "elective") {
+        serviceTitle = "Elective Course Registration";
+        detailText = document.getElementById("electiveCourse").value;
+      }
+
+      applicationsList.push({
+        roll: roll,
+        name: name,
+        service: serviceTitle,
