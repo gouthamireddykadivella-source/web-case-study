@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MRU Student Helpdesk & Circular Portal</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      background-color: #f4f6f9;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #003366;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    header p {
+      font-size: 14px;
+      margin-top: 5px;
+      color: #ffd700;
+    }
+    nav {
+      background-color: #00509e;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 12px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      max-width: 1100px;
+      margin: 20px auto;
+      padding: 0 15px;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 20px;
+    }
+    section, aside {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    h2 {
+      color: #003366;
+      border-bottom: 2px solid #00509e;
+      padding-bottom: 8px;
+      margin-bottom: 15px;
+    }
+    article {
+      border-left: 4px solid #00509e;
+      padding-left: 12px;
+      margin-bottom: 15px;
+    }
+    article h3 {
+      font-size: 16px;
+      color: #222;
+    }
+    article small {
+      color: #666;
+    }
+    .banner-img {
+      width: 100%;
+      height: 180px;
+      border-radius: 6px;
+      margin-bottom: 15px;
+      background-color: #dbe9f4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #003366;
+      font-weight: bold;
+    }
+    ul.resource-list {
+      list-style: none;
+    }
+    ul.resource-list li {
+      margin-bottom: 10px;
+    }
+    ul.resource-list a {
+      color: #00509e;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    ul.resource-list a:hover {
+      text-decoration: underline;
+    }
+    form label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    form input, form select, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    form button {
+      margin-top: 15px;
+      background-color: #003366;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      width: 100%;
+    }
+    form button:hover {
+      background-color: #00509e;
+    }
+    footer {
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 20px;
+    }
+    @media (max-width: 768px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Malla Reddy University (MRU)</h1>
+    <p>Student Helpdesk & Circular Portal | I B.Tech (R-26) | Roll No: 60</p>
+  </header>
+
+  <nav>
+    <a href="#circulars">Academic Circulars</a>
+    <a href="#exams">Exam Notifications</a>
+    <a href="#announcements">Campus Announcements</a>
+    <a href="#enquiry">Student Enquiry</a>
+    <a href="#contact">Contact Helpdesk</a>
+  </nav>
+
+  <main>
+    <div>
+      <section id="circulars">
+        <h2>Academic Circulars</h2>
+        <div class="banner-img">MRU Campus Academic Notice Board (2026-27)</div>
+        <article>
+          <h3>R-26 I B.Tech Semester II Classwork Commencement</h3>
+          <small>Published: November 20, 2026</small>
+          <p>All I B.Tech students are informed that Semester II regular classes begin from Monday at 9:30 AM.</p>
+        </article>
+        <article>
+          <h3>Mandatory 75% Attendance Rule</h3>
+          <small>Published: November 18, 2026</small>
+          <p>Students must maintain a minimum of 75% attendance to be eligible for Endterm Examinations.</p>
+        </article>
+      </section>
+
+      <section id="exams">
+        <h2>Examination Notifications</h2>
+        <article>
+          <h3>Minor-1 Examination Timetable Released</h3>
+          <small>Published: November 22, 2026</small>
+          <p>Minor-1 exams for R-26 regulation will be held next month. Download the schedule from the resources panel.</p>
+        </article>
+        <article>
+          <h3>Exam Fee Payment Notification</h3>
+          <small>Published: November 24, 2026</small>
+          <p>Last date to pay examination fees without late fine is December 15, 2026.</p>
+        </article>
+      </section>
+
+      <section id="enquiry">
+        <h2>Student Enquiry Form</h2>
+        <form action="#" method="post">
+          <label for="studentName">Full Name:</label>
+          <input type="text" id="studentName" name="studentName" placeholder="Enter your full name" required>
+
+          <label for="rollNo">Roll Number:</label>
+          <input type="text" id="rollNo" name="rollNo" value="60" required>
+
+          <label for="email">University Email:</label>
+          <input type="email" id="email" name="email" placeholder="roll60@mallareddyuniversity.ac.in" required>
+
+          <label for="category">Enquiry Category:</label>
+          <select id="category" name="category">
+            <option value="academics">Academic Circulars</option>
+            <option value="exams">Examination Cell</option>
+            <option value="transport">Transport & Hostel</option>
+            <option value="certificates">Bonafide / ID Card</option>
+          </select>
+
+          <label for="message">Describe Your Query:</label>
+          <textarea id="message" name="message" rows="4" placeholder="Write your question here..." required></textarea>
+
+          <button type="submit">Submit Enquiry</button>
+        </form>
+      </section>
+    </div>
+
+    <aside>
+      <section id="announcements">
+        <h2>Campus Announcements</h2>
+        <article>
+          <h3>Annual Tech Fest 2026</h3>
+          <p>Register your coding and web development projects at the CSE department desk.</p>
+        </article>
+        <article>
+          <h3>Central Library Extended Hours</h3>
+          <p>The digital library will remain open until 8:00 PM during examination weeks.</p>
+        </article>
+      </section>
+
+      <section>
+        <h2>Downloadable Resources</h2>
+        <ul class="resource-list">
+          <li><a href="#" download>📄 R-26 I B.Tech Syllabus (PDF)</a></li>
+          <li><a href="#" download>📄 Minor-1 Exam Timetable (PDF)</a></li>
+          <li><a href="#" download>📄 Academic Calendar 2026-27 (PDF)</a></li>
+          <li><a href="https://mallareddyuniversity.ac.in" target="_blank">🔗 Official MRU Website</a></li>
+        </ul>
+      </section>
+
+      <section id="contact">
+        <h2>Helpdesk Contact</h2>
+        <p><strong>Address:</strong> Maisammaguda, Dulapally, Hyderabad, Telangana 500100</p>
+        <p><strong>Phone:</strong> +91 94406 88439</p>
+        <p><strong>Email:</strong> helpdesk@mallareddyuniversity.ac.in</p>
+        <p><strong>Timings:</strong> Mon - Sat (9:00 AM - 4:30 PM)</p>
+      </section>
+    </aside>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Malla Reddy University (MRU) | Designed by Roll No: 60</p>
+  </footer>
+
+</body>
+</html>
